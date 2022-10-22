@@ -1,0 +1,21 @@
+<nz-modal nzClosable="false" [nzFooter]="null" (nzOnCancel)="modalClose()" [(nzVisible)]="isVisible" >
+  <ng-container *nzModalContent>
+    <div class="list-container"><img [src]="pic" alt="" style="width: 100px;height: 100px"></div>
+    <div class="list-container p-1 m-1">
+      <ul nz-list class="w-100"  nzBordered nzSize="large">
+        <ng-container *ngFor="let item of user|keyvalue">
+          <li nz-list-item *ngIf="item.key !== 'picture' && item.key !== 'location'" nzNoFlex>
+            {{ item.key| titlecase }}
+          </li>
+        </ng-container>
+      </ul>
+      <ul nz-list class="w-100"  nzBordered nzSize="large">
+        <ng-container *ngFor="let item of user|keyvalue">
+          <li nz-list-item *ngIf="item.key !== 'picture' && item.key !== 'location'" nzNoFlex>
+            {{ item.value |titlecase }}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </ng-container>
+</nz-modal>

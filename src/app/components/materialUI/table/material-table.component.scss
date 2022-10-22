@@ -1,0 +1,68 @@
+table{
+  width: 100%;
+  text-align: center!important;
+}
+th{
+  text-align: center!important;
+  > *{
+    justify-content: center !important;
+  }
+}
+.mat-sort-header-container{
+  display: flex !important;
+  justify-content: center !important;
+}
+
+@media screen and (max-width: 640px) {
+  .mat-column-avatar{
+    display: none;
+  }
+  .mat-column-title{
+    width: 10%;
+  }
+  .mat-column-first{
+    width: 10%;
+  }
+  .mat-column-last{
+    width: 10%;
+  }
+  .mat-column-gender{
+    width: 10%;
+  }
+  .mat-column-state{
+    display: none;
+  }
+  .mat-column-city{
+    display: none;
+  }
+
+  .mat-column-country{
+    display: none;
+  }
+}
+
+.mat-column-avatar{
+  width: 10%;
+}
+.mat-column-title{
+  width: 10%;
+}
+.mat-column-first{
+  width: 10%;
+}
+.mat-column-last{
+  width: 10%;
+}
+.mat-column-gender{
+  width: 10%;
+}
+.mat-column-state{
+  width: 10%;
+}
+.mat-column-city{
+  width: 10%;
+}
+
+.mat-column-country{
+  width: 15%;
+}

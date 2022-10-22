@@ -1,0 +1,27 @@
+<nz-table #filterTable [nzData]="data" nzTableLayout="fixed" class="w-100 p-4">
+  <thead>
+  <tr>
+    <th
+      *ngFor="let column of listOfColumns"
+      [nzSortOrder]="column.sortOrder"
+      [nzSortFn]="column.sortFn"
+      [nzSortDirections]="column.sortDirections"
+    >
+      {{ column.name }}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr  (click)="openModal(data)" *ngFor="let data of filterTable.data">
+    <td *ngIf="width > 640"><img [src]="data.picture" style="height: 50px;width: 50px" alt="avatar"></td>
+    <td >{{ data.title }}</td>
+    <td>{{ data.first }}</td>
+    <td>{{ data.last }}</td>
+    <td *ngIf="width > 640">{{ data.gender }}</td>
+    <td *ngIf="width > 640">{{ data.state }}</td>
+    <td *ngIf="width > 640">{{ data.city }}</td>
+    <td *ngIf="width > 640">{{ data.country }}</td>
+  </tr>
+  </tbody>
+</nz-table>
+<app-ant-modal (modalClosed)="isModalVisible = false" [isVisible]="isModalVisible" [user]="modalData?.user" [pic]="modalData.pic"></app-ant-modal>

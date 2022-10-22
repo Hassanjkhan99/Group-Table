@@ -1,0 +1,30 @@
+<mat-toolbar *ngIf="theme === themeEnum.MaterialUI" color="primary" class="header">
+  <span>My Grouped Table</span>
+  <span>This is Material Design</span>
+  <mat-button-toggle-group [value]="theme" (valueChange)="ThemeChange($event)"  name="selectedTheme">
+    <mat-button-toggle [value]="themeEnum.MaterialUI">MaterialUI</mat-button-toggle>
+    <mat-button-toggle [value]="themeEnum.AntDesign">AntDesign</mat-button-toggle>
+    <mat-button-toggle [value]="themeEnum.BootStrap">BootStrap</mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-toolbar>
+
+
+<div *ngIf="theme === themeEnum.AntDesign" nz-card-grid class="header w-100" >
+<div >My Grouped Table</div>
+<div >This is Ant Design</div>
+  <nz-radio-group [(ngModel)]="theme" nzSize="large" nzButtonStyle="outline" (ngModelChange)="ThemeChange($event)">
+    <label nz-radio-button [nzValue]="themeEnum.MaterialUI">MaterialUI</label>
+    <label nz-radio-button [nzValue]="themeEnum.AntDesign">AntDesign</label>
+    <label nz-radio-button [nzValue]="themeEnum.BootStrap">BootStrap</label>
+  </nz-radio-group>
+</div>
+
+<nav class="navbar navbar-light  header p-3" *ngIf="theme === themeEnum.BootStrap">
+  <div >My Grouped Table</div>
+  <div >This is BootStrap</div>
+  <div class="btn-group" role="group">
+    <button (click)="ThemeChange(themeEnum.MaterialUI)" type="button" class="btn btn-primary">MaterialUI</button>
+    <button (click)="ThemeChange(themeEnum.AntDesign)" type="button" class="btn btn-primary">AntDesign</button>
+    <button (click)="ThemeChange(themeEnum.BootStrap)" type="button" class="btn btn-primary">BootStrap</button>
+  </div>
+</nav>

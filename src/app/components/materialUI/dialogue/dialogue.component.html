@@ -1,0 +1,25 @@
+<div class="w-100 d-flex justify-content-center">
+  <img [src]="data.pic" alt="" style="width: 100px;height: 100px">
+</div>
+<div class="list">
+  <mat-list>
+    <ng-container *ngIf="data">
+      <ng-container *ngFor="let item of data.user|keyvalue ">
+        <mat-list-item  class="w-100" *ngIf="item.key !== 'picture' && item.key !== 'location'" >
+          <div class="w-100 text-center">{{item.key | titlecase}} :</div>
+        </mat-list-item>
+      </ng-container>
+    </ng-container>
+  </mat-list>
+  <mat-list>
+    <ng-container *ngIf="data">
+      <ng-container *ngFor="let item of data.user|keyvalue ">
+        <mat-list-item class="w-100" *ngIf="item.key !== 'picture' && item.key !== 'location'" >
+          <div class="w-100 text-center">{{item.value | titlecase}}</div>
+        </mat-list-item>
+      </ng-container>
+    </ng-container>
+  </mat-list>
+</div>
+
+

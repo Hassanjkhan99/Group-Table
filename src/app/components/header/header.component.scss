@@ -1,0 +1,18 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  font-style: normal;
+  font-weight: normal;
+  flex-direction: row;
+  width: 100%;
+
+  @media screen and (max-width: 640px) {
+  flex-direction: column;
+    height: auto;
+    > * {
+    margin-bottom: 10px;
+  }
+  }
+}

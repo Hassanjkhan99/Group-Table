@@ -1,0 +1,9 @@
+<mat-tab-group>
+  <ng-container *ngFor="let tab of dataService.tabSets| keyvalue">
+  <mat-tab  [label]="tab.key">
+
+    <app-material-table [data]="tab.value"></app-material-table>
+
+  </mat-tab>
+  </ng-container>
+</mat-tab-group>

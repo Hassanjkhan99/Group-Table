@@ -1,0 +1,62 @@
+<table class="table p-2">
+  <thead>
+  <tr>
+    <th *ngIf="width > breakpoint" scope="col" >Avatar</th>
+    <th scope="col" sortable="title"  (sort)="onSort($event)">Title</th>
+    <th scope="col" sortable="first"  (sort)="onSort($event)">First Name</th>
+    <th scope="col" sortable="last" direction="desc" (sort)="onSort($event)">Last Name</th>
+    <th *ngIf="width > breakpoint" scope="col" sortable="gender" direction="desc" (sort)="onSort($event)">Gender</th>
+    <th *ngIf="width > breakpoint" scope="col" sortable="state" direction="desc" (sort)="onSort($event)">State</th>
+    <th *ngIf="width > breakpoint" scope="col" sortable="city" direction="desc" (sort)="onSort($event)">City</th>
+    <th *ngIf="width > breakpoint" scope="col" sortable="country" direction="desc" (sort)="onSort($event)">Country</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr (click)="openModal(content, item)" *ngFor="let item of dataSource ">
+    <td *ngIf="width > breakpoint"><img [src]="item.picture" style="height: 50px;width: 50px" alt="avatar"></td>
+    <td>{{ item.title }}</td>
+    <td>{{ item.first }}</td>
+    <td>{{ item.last }}</td>
+    <td *ngIf="width > breakpoint">{{ item.gender }}</td>
+    <td *ngIf="width > breakpoint">{{ item.state }}</td>
+    <td *ngIf="width > breakpoint">{{ item.city }}</td>
+    <td *ngIf="width > breakpoint">{{ item.country }}</td>
+  </tr>
+  </tbody>
+</table>
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination (pageChange)="pageChange($event)" [collectionSize]="(data.length)!" [(page)]="page" [pageSize]="pageSize">
+  </ngb-pagination>
+
+  <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="pageSize" (ngModelChange)="pageChange(page)">
+    <option [ngValue]="10">10 items per page</option>
+    <option [ngValue]="20">20 items per page</option>
+    <option [ngValue]="30">30 items per page</option>
+  </select>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-body w-90">
+    <div class="container"><img [src]="currentPic" alt="" style="width: 100px;height: 100px"></div>
+    <div class="container w-100">
+    <ul class="list-group list-group-light w-100">
+      <ng-container *ngFor="let item of currentItem|keyvalue">
+        <li  class="list-group-item" *ngIf="item.key !== 'picture' && item.key !== 'location'" >
+          {{ item.key | titlecase }} :
+        </li>
+      </ng-container>
+
+    </ul>
+      <ul class="list-group list-group-light w-100">
+        <ng-container *ngFor="let item of currentItem|keyvalue">
+          <li  class="list-group-item" *ngIf="item.key !== 'picture' && item.key !== 'location'" >
+            {{ item.value | titlecase }}
+          </li>
+        </ng-container>
+
+    </ul>
+
+    </div>
+  </div>
+</ng-template>

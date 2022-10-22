@@ -1,0 +1,9 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs ">
+  <li *ngFor="let tab of dataService.tabSets | keyvalue" ngbNavItem>
+    <a ngbNavLink>{{tab.key}}</a>
+    <ng-template ngbNavContent>
+      <app-bootstrap-table [data]="tab.value"></app-bootstrap-table>
+    </ng-template>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
