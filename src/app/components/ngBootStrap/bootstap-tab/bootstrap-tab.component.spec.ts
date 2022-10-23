@@ -1,18 +1,18 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {BootstapTabComponent} from './bootstap-tab.component';
+import {BootstrapTabComponent} from './bootstrap-tab.component';
 
 describe('BootstapTabComponent', () => {
-  let component: BootstapTabComponent;
-  let fixture: ComponentFixture<BootstapTabComponent>;
+  let component: BootstrapTabComponent;
+  let fixture: ComponentFixture<BootstrapTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BootstapTabComponent ]
+      declarations: [BootstrapTabComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(BootstapTabComponent);
+    fixture = TestBed.createComponent(BootstrapTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

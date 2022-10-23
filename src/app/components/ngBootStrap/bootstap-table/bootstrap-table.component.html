@@ -12,7 +12,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr (click)="openModal(content, item)" *ngFor="let item of dataSource ">
+  <tr (click)="openModal(content, item)" *ngFor="let item of dataSource " data-cy="row">
     <td *ngIf="width > breakpoint"><img [src]="item.picture" style="height: 50px;width: 50px" alt="avatar"></td>
     <td>{{ item.title }}</td>
     <td>{{ item.first }}</td>

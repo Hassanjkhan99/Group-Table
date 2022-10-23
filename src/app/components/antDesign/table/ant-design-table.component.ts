@@ -32,13 +32,10 @@ export class AntDesignTableComponent implements OnInit{
       this.listOfColumns= this.columns
     }
   }
-
-
-
   @Input() data: DataItem[] = [];
 
+  breakpoint: number = 640
   width: number = window.innerWidth;
-
   columns: ColumnItem[] =  [
     {
       name: 'Avatar',
@@ -106,20 +103,17 @@ export class AntDesignTableComponent implements OnInit{
         sortDirections: ['ascend', 'descend', null],
       },
     ];
-
   listOfColumns: ColumnItem[] = [];
   isModalVisible: boolean = false;
   modalData: { user:  DataItem  , pic: string }= {pic:'',user: {} as DataItem};
 
   ngOnInit(): void {
-    if(window.innerWidth < 640){
+    if (window.innerWidth < this.breakpoint) {
       this.listOfColumns = this.mobileColumns
-    }else{
-      this.listOfColumns= this.columns
+    } else {
+      this.listOfColumns = this.columns
     }
   }
-
-
   openModal(user: DataItem) {
     this.modalData =  { user: user,pic: user.picture }
     this.isModalVisible = true

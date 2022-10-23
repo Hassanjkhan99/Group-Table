@@ -12,15 +12,15 @@
   </tr>
   </thead>
   <tbody>
-  <tr  (click)="openModal(data)" *ngFor="let data of filterTable.data">
-    <td *ngIf="width > 640"><img [src]="data.picture" style="height: 50px;width: 50px" alt="avatar"></td>
-    <td >{{ data.title }}</td>
+  <tr (click)="openModal(data)" *ngFor="let data of filterTable.data">
+    <td *ngIf="width > breakpoint"><img [src]="data.picture" alt="avatar" style="height: 50px;width: 50px"></td>
+    <td>{{ data.title }}</td>
     <td>{{ data.first }}</td>
     <td>{{ data.last }}</td>
-    <td *ngIf="width > 640">{{ data.gender }}</td>
-    <td *ngIf="width > 640">{{ data.state }}</td>
-    <td *ngIf="width > 640">{{ data.city }}</td>
-    <td *ngIf="width > 640">{{ data.country }}</td>
+    <td *ngIf="width > breakpoint">{{ data.gender }}</td>
+    <td *ngIf="width > breakpoint">{{ data.state }}</td>
+    <td *ngIf="width > breakpoint">{{ data.city }}</td>
+    <td *ngIf="width > breakpoint">{{ data.country }}</td>
   </tr>
   </tbody>
 </nz-table>

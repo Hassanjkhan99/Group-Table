@@ -16,6 +16,11 @@ import {DataItem} from "../../../core/interfaces/data-item";
   standalone: true,
 })
 export class MaterialTableComponent {
+
+  @Input() data: { first: string; last: string }[] = [];
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  dataSource = new MatTableDataSource();
   displayedColumns: string[] = [
     'avatar',
     'title',
@@ -26,16 +31,12 @@ export class MaterialTableComponent {
     'city',
     'country',
   ];
-  @Input() data: { first: string; last: string }[] = [];
-  dataSource = new MatTableDataSource();
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog
   ) {}
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.data = this.data;
