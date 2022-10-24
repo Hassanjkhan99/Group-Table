@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NzTabsModule} from "ng-zorro-antd/tabs";
 import {AntDesignTableComponent} from "../table/ant-design-table.component";
-import {DataService} from "../../../core/services/data.service";
+import {Tabsets} from "../../../core/interfaces/tabsets";
 
 @Component({
   selector: 'app-ant-design-tab',
@@ -13,7 +13,10 @@ import {DataService} from "../../../core/services/data.service";
 })
 export class AntDesignTabComponent implements OnInit {
 
-  constructor(public dataService:DataService) { }
+  @Input() tabSets: Tabsets;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

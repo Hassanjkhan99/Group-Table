@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatTableModule} from "@angular/material/table";
 import {MaterialTableComponent} from "../table/material-table.component";
-import {DataService} from "../../../core/services/data.service";
+import {Tabsets} from "../../../core/interfaces/tabsets";
 
 @Component({
   selector: 'app-material-tab',
@@ -15,8 +15,10 @@ import {DataService} from "../../../core/services/data.service";
 })
 export class MaterialTabComponent implements OnInit {
 
+  @Input() tabSets: Tabsets;
 
-  constructor(public dataService: DataService) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
 

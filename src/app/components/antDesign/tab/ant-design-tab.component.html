@@ -1,6 +1,6 @@
 <nz-tabset nzCentered nzSize="large">
-  <ng-container *ngFor="let tab of dataService.tabSets| keyvalue">
-    <nz-tab  [nzTitle]="tab.key">
+  <ng-container *ngFor="let tab of tabSets| keyvalue">
+    <nz-tab [nzTitle]="tab.key">
 
       <app-ant-design-table [data]="tab.value"></app-ant-design-table>
     </nz-tab>

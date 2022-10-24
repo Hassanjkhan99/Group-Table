@@ -13,6 +13,8 @@ import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 import {AntDesignTabComponent} from "./components/antDesign/tab/ant-design-tab.component";
 import {BootstrapTabComponent} from './components/ngBootStrap/bootstap-tab/bootstrap-tab.component';
+import {NgxsModule} from "@ngxs/store";
+import {AppState} from "./ngRx/states/app.state";
 
 registerLocaleData(en);
 
@@ -21,16 +23,17 @@ registerLocaleData(en);
     AppComponent,
     HOCComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        HeaderComponent,
-        MaterialTabComponent,
-        AntDesignTabComponent,
-      BootstrapTabComponent
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    HeaderComponent,
+    MaterialTabComponent,
+    AntDesignTabComponent,
+    BootstrapTabComponent,
+    NgxsModule.forRoot([AppState])
+  ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
   ],
